@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <title>Document</title>
+</head>
+<body>
+        <div id="main">
+            <div id="right">
+              
+                
+                    
+                        
+                <div class="center" id="center">
+                    
+                    
+                           
+                                <% foundUser.receivedMails.forEach(function(elem){ %>
+                                    <a href="/readmoreb/<%=elem._id%>">
+                                        <div id="mails" style="text-decoration: none; color: black;">
+                                            <h3><%= elem.userid.username %></h3>
+                                       
+                                        <p><%= elem.mailtext %></p>
+                                    </div>
+                                    </a>
+                                <%})%>
+                          
+                       
+                </div>
+                        
+    
+        
+                <div id="third">
+                    <div id="line1">
+                        <h6>New message  <span><i class="ri-subtract-fill" id="a"></i></span><span><i class="ri-close-line" id="b"></i></span></h6>
+                    </div>
+                    <div id="line2">
+                        From : <input type="text" name="sender" value="<%=foundUser.email%> ">
+                    </div> 
+                    <form action="/compose" method="post">
+                        
+                        
+                        <div id="line3">
+                            To : <input type="text" name="receivemail" type="email">
+                        </div> 
+                        <div id="line4">
+                            <textarea name="mailtext" id="" cols="30" rows="10" placeholder="Type the message..."></textarea>
+                        </div> 
+                        <div id="line5"> 
+                            <input  type="submit" >
+                        </div>
+                    </form>
+                </div>    
+                    
+                
+            
+            </div>
+        <div id="left">
+            
+                <div id="ppic" >
+                    <img src="/images/uploads/<%=foundUser.profilePic%>" alt="" >
+                    
+                </div>
+                    
+           
+            <form id="pform" action="/imageupload" method="post", enctype="multipart/form-data">
+                <input type="file" name="file" id="file" >
+                <input type="submit"  >
+            </form>
+            
+            <div id="first">
+                
+                <i class="ri-menu-line"></i><span>Hello, <span id="a"><%=foundUser.name%></span></span>
+            </div>
+            <div id="second">
+                <i class="ri-pencil-fill"></i><span>Compose</span>
+            </div>
+            
+        </div>
+        <div id="righttop">
+            <i class="ri-search-line"></i><span>Search in mail</span>
+        </div>
+        </div>
+        <a href="/logout" style="color: red;  position: absolute; top: 90%;">logout</a>
+        <a href="/sent" style="color: red;  position: absolute; top: 94%;">sent</a>
+    
+
+        <script>
+            document.querySelector("#second").addEventListener("click", function(){
+                document.querySelector("#third").style.display= "initial";
+            })
+            document.querySelector("#line1 #b").addEventListener("click", function(){
+                document.querySelector("#third").style.display= "none";
+            });
+            //document.querySelector("#line1 #a").addEventListener("click", function(){
+                //document.querySelector("#third").style.bottom= "-71.9%";
+            //});
+            document.querySelector("#ppic").addEventListener("click", function(){
+                document.querySelector("#file").click();
+    });
+    document.querySelector("#file").addEventListener("change", function(){
+        document.querySelector("#pform").submit();
+    });
+    
+       
+        </script>
+</body>
+</html>

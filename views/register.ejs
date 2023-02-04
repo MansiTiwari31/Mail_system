@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            
+            <form action="/register" method="post" >
+                <h1>Create Account</h1>
+          <input name="name" type="text" placeholder="Name">
+                <input name="username" id="username" type="text" placeholder="Username">
+                <input name="email" type="email" placeholder="Email">
+                <h6>Gender</h6>
+                <div id="radio">
+                    
+                    <div class="wrap">
+                    
+    <label for="male">
+        <input type="radio" id="male" name="gender" value="male" >
+        Male</label>
+                    </div>
+    <div class="wrap">
+        
+    <label for="female">
+        <input type="radio" id="female" name="gender" value="female" >
+        Female</label>
+    </div>
+    <div class="wrap">
+        
+    <label for="other">
+        <input type="radio" id="other" name="gender" value="other" >
+        Other</label>
+    </div>
+    
+                </div>
+                <input name="mobileno" type="text" placeholder="Mobile No.">
+                <input name="password" type="password" placeholder="Password">
+                
+                
+                <button>Sign Up</button>
+                <span><a href="/login">Alredy have an account ?</a></span>
+              
+            </form>
+        </div>
+    </div>
+    <script>
+        document.querySelector("#username").addEventListener("input", function(){
+        
+            if(`${username.value}`){
+                document.querySelector("#username").style.color="red"
+            }
+            else{
+                document.querySelector("#username").style.color="initial"
+            }
+        })
+    </script>
+</body>
+</html>
